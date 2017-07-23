@@ -232,7 +232,8 @@
 								"\n",
 								 "sudo sh install_salt.sh \n",
 								"sudo sed -i 's/#master:/master:/g' /etc/salt/minion \n",
-								"sudo service salt-minion restart \n"
+								"sudo service salt-minion restart \n",
+								"sudo aws s3 cp s3://machinename/saltmasterip.txt /home/ec2-user/done.txt "
 			 
 		]]}},
         "ImageId" : { "Fn::FindInMap" : [ "AWSRegionArch2AMI", { "Ref" : "AWS::Region" },
