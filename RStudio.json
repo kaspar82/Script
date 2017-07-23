@@ -226,11 +226,11 @@
              "#!/bin/bash -xe\n",
 			 "cd /home/ec2-user/ \n",
 			 "sudo curl -L https://bootstrap.saltstack.com -o install_salt.sh \n",                                                                                                                                                                                                                                                                                                          
-			 "sudo sh install_salt.sh \n",
-			 "sudo wget https://s3.amazonaws.com/machinename/saltmasterip.txt --output-document=/home/ec2-user/ip.txt ",
+			 "sudo aws s3 cp s3://machinename/saltmasterip.txt /home/ec2-user/ip.txt ",
 								"\n",
 								"sudo  awk {' print $0  \" salt\"'} /home/ec2-user/ip.txt   >> /etc/hosts ",
 								"\n",
+								 "sudo sh install_salt.sh \n",
 								"sudo sed -i 's/#master:/master:/g' /etc/salt/minion \n",
 								"sudo service salt-minion restart \n"
 			 
